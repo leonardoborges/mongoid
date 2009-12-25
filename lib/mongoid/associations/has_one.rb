@@ -65,6 +65,7 @@ module Mongoid #:nodoc:
         # options: The association options.
         def instantiate(document, options)
           attributes = document.attributes[options.name]
+          attributes = attributes.first if attributes.is_a? Array
           new(document, attributes, options)
         end
 
